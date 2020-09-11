@@ -5,6 +5,9 @@ const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 const botCommands = require('./commands');
 const TOKEN = process.env.TOKEN;
+const express = require('express');
+
+express().listen(process.env.PORT || 5000);
 
 const filter = new Filter();
 
