@@ -9,7 +9,9 @@
   "author": "Michiel Mulders",
   "license": "ISC",
   "dependencies": {
+    "bad-words": "^3.0.3",
     "discord.js": "^11.5.1",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.4"
   }
 }
