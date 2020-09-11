@@ -21,6 +21,26 @@ bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
 });
 
+async function quote(msg) {
+  // Split the message into arguments
+  let content = msg.content.split(' ');
+  // Check if message id is supplied
+  if (content[1] == undefined) {
+    msg.reply('You need to suplly a message id');
+    return;
+  }
+  // Retrieve the message
+  let quotedMessage = await msg.channel.fetchMessage(content[1]);
+  // Parse the timestamp
+  let date = new Date(quotedMessage.createdTimestamp);
+  // Send the quote
+  msg.channel.send(
+    `"${quotedMessage.content}" - ${
+      quotedMessage.author
+    }, ${date.getFullYear()}`
+  );
+}
+
 bot.on('message', msg => {
   const args = msg.content.split(/ +/);
   let swear = false;
