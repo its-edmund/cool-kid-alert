@@ -14,6 +14,8 @@ module.exports = {
       `${msg.author} looks so cool swearing!`,
       `Everyone look at ${msg.author}! He so cool for swearing!`,
       `${msg.author} must be so old because he's swearing.`,
+      `Woah, look out guys! We have a real cool kid!`,
+      `Guys, look at ${msg.author}! He definitely wants your attention.`,
     ];
     const index = Math.floor(Math.random() * comebacks.length);
     msg.channel.send(comebacks[index]);
