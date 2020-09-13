@@ -21,25 +21,28 @@ bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
 });
 
+let toggle = { toggled: true };
+
 bot.on('message', msg => {
   const args = msg.content.split(/ +/);
   let swear = false;
   args.forEach(word => {
-    if (filter.isProfane(word)) {
+    if (filter.isProfane(word) && toggle.toggled) {
       swear = true;
     }
   });
 
   const command = swear ? 'swear' : args[0];
 
-  console.log(command);
-
   if (!bot.commands.has(command)) {
-    console.log('try again dumbass');
     return;
   }
 
   try {
+    if (command === '*toggle') {
+      bot.commands.get(command).execute(msg, toggle);
+      return;
+    }
     bot.commands.get(command).execute(msg, args);
   } catch (error) {
     console.error(error);
