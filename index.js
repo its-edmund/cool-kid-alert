@@ -21,7 +21,7 @@ bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
 });
 
-let toggle = { toggled: true };
+let toggle = { toggled: false };
 
 bot.on('message', msg => {
   const args = msg.content.split(/ +/);
