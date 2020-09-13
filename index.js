@@ -30,9 +30,14 @@ bot.on('message', msg => {
     }
   });
 
-  const command = swear ? 'swear' : '';
+  const command = swear ? 'swear' : args[0];
 
-  if (!bot.commands.has(command)) return;
+  console.log(command);
+
+  if (!bot.commands.has(command)) {
+    console.log('try again dumbass');
+    return;
+  }
 
   try {
     bot.commands.get(command).execute(msg, args);
