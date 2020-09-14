@@ -18,6 +18,7 @@ Object.keys(botCommands).map(key => {
 bot.login(TOKEN);
 
 bot.on('ready', () => {
+  bot.user.setGame('*help');
   console.info(`Logged in as ${bot.user.tag}!`);
 });
 
